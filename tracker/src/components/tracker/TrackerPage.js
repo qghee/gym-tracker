@@ -1,4 +1,6 @@
 import React from 'react'
+import Menu from '../menu/Menu'
+import './TrackerPage.css'
 
 const DEFAULT_EXCERCISES =[
     {name: "Pulldown", rep: 0, id: 1},
@@ -29,7 +31,8 @@ const TrackerPage = ({dayName}) => {
 
   return (
     <>  
-        <div>
+        <div className='center'>
+        
             <h1>{dayName ? dayName : "Exercise Day"}</h1>
             
             {exercises.map((exercise, idx) => {

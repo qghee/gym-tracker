@@ -6,7 +6,8 @@ import {
   Route,
 } from "react-router-dom";
 import TrackerPage from "./components/tracker/TrackerPage";
-
+import Home from "./components/tracker/Home";
+import Menu from "./components/menu/Menu";
 
 
 const Ting = props => {
@@ -25,10 +26,6 @@ const Ting = props => {
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    //element: <App />,
-  },
-  {
     path: "pull",
     element: <TrackerPage dayName="Pull Day" />,
   },
@@ -39,24 +36,22 @@ const router = createBrowserRouter([
   {
     path: "leg",
     element: <TrackerPage dayName="Leg Day" />,
-  }
+  },
+  {
+    path: "/",
+    element: <Home />,
+  },
 ]);
 
 function App() {
   return (
 
-    
-    <div>
+
+    <div className="main-container">
       <RouterProvider router={router} />
-      <a href="/pull">
-        pull
-      </a>
-      <a href="/push">
-        push
-      </a>
-      <a href="/leg">
-        legs
-      </a>
+      <div className="menu-bar">
+      <Menu />
+      </div>
     </div> 
 
     

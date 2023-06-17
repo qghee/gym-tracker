@@ -1,0 +1,33 @@
+.menu{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white */
+    background-color: #00153C;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button-container a{ 
+    flex-grow: 1;
+}
+
+.button-container button:hover {
+    background-color: #00276F;
+    transition: color 250ms ease-in-out;
+}
+    
+.menu-button{
+    background-color: #00153C;
+    height: 3rem;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px 16px;
+    color: white;
+    border: none;
+}
