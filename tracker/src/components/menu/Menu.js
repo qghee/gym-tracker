@@ -1,17 +1,19 @@
 import './Menu.css'
 
-const Menu = () => {
+const Menu = ({tabIndexProp}) => {
+    const [tabIndex, setTabIndex] = tabIndexProp;
+
         return (
             <div className="menu">
                 <div className="button-container">
-                    <a href="/pull">
-                        <button className="menu-button">pull</button>
+                    <a>
+                        <button className="menu-button" onClick={() => setTabIndex(0)}>pull</button>
                     </a>
-                    <a href="/push">
-                        <button className="menu-button">push</button>
+                    <a>
+                        <button className="menu-button" onClick={() => setTabIndex(1)}>push</button>
                     </a>
-                    <a href="/leg">
-                        <button className="menu-button">leg</button>
+                    <a>
+                        <button className="menu-button" onClick={() => setTabIndex(2)}>leg</button>
                     </a>
                 </div> 
 
