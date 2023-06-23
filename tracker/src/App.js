@@ -7,10 +7,21 @@ import Menu from "./components/menu/Menu";
 const TAB_INDEX_MAP = ["pull", "push", "leg"];
 
 function App() {
-  const [tabIndex, setTabIndex] = React.useState(0);
+  const [tabIndex, setTabIndex] = React.useState(-1);
   return (
     <div className="main-container">
-      <TrackerPage dayName={TAB_INDEX_MAP[tabIndex]}></TrackerPage>
+      {tabIndex == -1 ?(
+        <>
+          <div className="center">
+            Welcome <br/> Please select a workout split to get started :D
+            {/* change to something else */}
+          </div>
+        </>
+      ):(
+
+        <TrackerPage dayName={TAB_INDEX_MAP[tabIndex]}></TrackerPage>
+
+      )}
       <div className="menu-bar">
         <Menu tabIndexProp={[tabIndex, setTabIndex]} />
       </div>

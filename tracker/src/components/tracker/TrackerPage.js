@@ -27,15 +27,14 @@ const getDataFromLocalStorage = () => {
 
 const TrackerPage = ({ dayName }) => {
   /*  const [exercises, setExercises] = React.useState(DEFAULT_EXCERCISES)*/
-  const [exercises, setExercises] = React.useState(() =>
-    getDataFromLocalStorage()
-  );
+  const [exercises, setExercises] = React.useState(() => getDataFromLocalStorage());
 
   const [newExerciseName, setNewExerciseName] = React.useState("");
 
   const [showForm, setShowForm] = React.useState(false);
 
   const [PrevKg, setPrevKg] = React.useState([]);
+
   /*  
     const addNewExercise = () => {
         setExercises(p => [...p, {name: newExerciseName, id: p.length + 1, type: dayName}])
@@ -69,17 +68,16 @@ const TrackerPage = ({ dayName }) => {
         <h1>{dayName ? dayName : "Exercise Day"}</h1>
         {exercises[0] == null && (
           <>
-            <div style={{ paddingBottom: "25px" }}>
-              Your routine is currently empty, Add a new exercise
-            </div>
+            <div style={{ paddingBottom: "25px" }}>Your routine is currently empty, Add a new exercise</div>
           </>
         )}
 
-        {exercises.map((exercise, idx) => {
-          return (
-            <div key={exercise.id}>
-              {exercise.type == dayName && (
-                <div>
+        {exercises.filter((exercise) => exercise.type === dayName).length > 0 ? (
+          exercises
+            .filter((exercise) => exercise.type === dayName)
+            .map((exercise, idx) => {
+              return (
+                <div key={exercise.id}>
                   <h3>{exercise.name}</h3>
                   <p>
                     Description of {exercise.name}
@@ -87,23 +85,19 @@ const TrackerPage = ({ dayName }) => {
                     Last Weight (kg): {PrevKg[idx] == null ? "0" : PrevKg[idx]}
                   </p>
                 </div>
-              )}
-            </div>
-          );
-        })}
+              );
+            })
+        ) : (
+          <div style={{ paddingBottom: "25px" }}>Your routine is currently empty, Add a new exercise</div>
+        )}
 
-        <button onClick={() => setShowForm((prev) => !prev)}>
-          {showForm ? "CANCEL" : "+"}
-        </button>
+        <button onClick={() => setShowForm((prev) => !prev)}>{showForm ? "CANCEL" : "+"}</button>
 
         {showForm && (
           <>
             <form>
               <label>New Exercise Name:</label>
-              <input
-                value={newExerciseName}
-                onChange={(val) => setNewExerciseName(val.target.value)}
-              />
+              <input value={newExerciseName} onChange={(val) => setNewExerciseName(val.target.value)} />
               <button onClick={addNewExercise}>Add new Exercise</button>
             </form>
           </>
