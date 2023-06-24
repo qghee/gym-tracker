@@ -1,6 +1,6 @@
 import React from "react";
 import "./TrackerPage.css";
-import { Link } from "react-router-dom";
+
 /* 
 const DEFAULT_EXCERCISES =[
     {type: "Pulldown", rep: 0, id: 1, },
@@ -33,9 +33,15 @@ const TrackerPage = ({ dayName }) => {
 
   const [showForm, setShowForm] = React.useState(false);
 
-  const [PrevKg, setPrevKg] = React.useState([]);
+  const [newKG, setNewKG] = React.useState(0);
 
+  const [currIdx, setCurrIdx] = React.useState(-1);
+  const [update, setUpdate] = React.useState(true);
+
+  
   /*  
+  const [currExercise, setCurrExercise] = React.useState()
+  
     const addNewExercise = () => {
         setExercises(p => [...p, {name: newExerciseName, id: p.length + 1, type: dayName}])
         setShowForm(false)
@@ -48,29 +54,38 @@ const TrackerPage = ({ dayName }) => {
       name: newExerciseName,
       id: exercises.length,
       type: dayName,
+      prevKg: 0,
     };
 
     setExercises((p) => [...p, newExercise]);
     localStorage.setItem(newExercise.id, JSON.stringify(newExercise));
-
+    
     setShowForm(false);
     setNewExerciseName("");
   });
 
+  
   React.useEffect(() => {
     setShowForm(false);
     setNewExerciseName("");
   }, [exercises]);
+  
+  React.useEffect(() => {
+    setUpdate((update) => !update);
+    console.log(update, currIdx)
+  }, [currIdx]);
+
+
+  const updateKG = React.useCallback((exercise) => {
+    setCurrIdx(-1);
+    exercise.prevKg = newKG;
+    localStorage.setItem(exercise.id, JSON.stringify(exercise));
+  });
 
   return (
     <>
       <div className="center">
         <h1>{dayName ? dayName : "Exercise Day"}</h1>
-        {exercises[0] == null && (
-          <>
-            <div style={{ paddingBottom: "25px" }}>Your routine is currently empty, Add a new exercise</div>
-          </>
-        )}
 
         {exercises.filter((exercise) => exercise.type === dayName).length > 0 ? (
           exercises
@@ -82,7 +97,23 @@ const TrackerPage = ({ dayName }) => {
                   <p>
                     Description of {exercise.name}
                     <br />
-                    Last Weight (kg): {PrevKg[idx] == null ? "0" : PrevKg[idx]}
+                    Last Weight (kg): {exercise.prevKg}
+                    
+
+                    {update &&(
+                      <button onClick={() => setCurrIdx(exercise.id)}>kndfjvglniksfjgsgfljnuik</button>
+                    )}
+                      
+                    {currIdx == exercise.id &&(
+                    <form>
+                      <label>
+                        <input type="number" value={newKG} onChange={(e) => setNewKG(e.target.value)} />
+                      </label>
+                      <button onClick={() => updateKG(exercise)}>Update</button>
+                    </form>
+
+                    )}
+
                   </p>
                 </div>
               );
