@@ -38,7 +38,6 @@ const TrackerPage = ({ dayName }) => {
   const [currIdx, setCurrIdx] = React.useState(-1);
   const [update, setUpdate] = React.useState(true);
 
-  
   /*  
   const [currExercise, setCurrExercise] = React.useState()
   
@@ -59,22 +58,20 @@ const TrackerPage = ({ dayName }) => {
 
     setExercises((p) => [...p, newExercise]);
     localStorage.setItem(newExercise.id, JSON.stringify(newExercise));
-    
+
     setShowForm(false);
     setNewExerciseName("");
   });
 
-  
   React.useEffect(() => {
     setShowForm(false);
     setNewExerciseName("");
   }, [exercises]);
-  
+
   React.useEffect(() => {
     setUpdate((update) => !update);
-    console.log(update, currIdx)
+    console.log(update, currIdx);
   }, [currIdx]);
-
 
   const updateKG = React.useCallback((exercise) => {
     setCurrIdx(-1);
@@ -98,22 +95,24 @@ const TrackerPage = ({ dayName }) => {
                     Description of {exercise.name}
                     <br />
                     Last Weight (kg): {exercise.prevKg}
-                    
-
-                    {update &&(
-                      <button onClick={() => setCurrIdx(exercise.id)}>kndfjvglniksfjgsgfljnuik</button>
+                    {update && (
+                      <button className="tracker-button" onClick={() => setCurrIdx(exercise.id)}>
+                        Add Todays Weight
+                      </button>
                     )}
-                      
-                    {currIdx == exercise.id &&(
-                    <form>
-                      <label>
-                        <input type="number" value={newKG} onChange={(e) => setNewKG(e.target.value)} />
-                      </label>
-                      <button onClick={() => updateKG(exercise)}>Update</button>
-                    </form>
-
+                    {currIdx === exercise.id && (
+                      <form>
+                        <label>
+                          <input type="number" value={newKG} onChange={(e) => setNewKG(e.target.value)} />
+                        </label>
+                        <button className="tracker-button" onClick={() => updateKG(exercise)}>
+                          Update
+                        </button>
+                        <button className="tracker-button" onClick={() => setCurrIdx(-1)}>
+                          Cancel
+                        </button>
+                      </form>
                     )}
-
                   </p>
                 </div>
               );
@@ -122,14 +121,16 @@ const TrackerPage = ({ dayName }) => {
           <div style={{ paddingBottom: "25px" }}>Your routine is currently empty, Add a new exercise</div>
         )}
 
-        <button onClick={() => setShowForm((prev) => !prev)}>{showForm ? "CANCEL" : "+"}</button>
+        <button  className="tracker-button" onClick={() => setShowForm((prev) => !prev)}>{showForm ? "CANCEL" : "+"}</button>
 
         {showForm && (
           <>
             <form>
               <label>New Exercise Name:</label>
               <input value={newExerciseName} onChange={(val) => setNewExerciseName(val.target.value)} />
-              <button onClick={addNewExercise}>Add new Exercise</button>
+              <button className="tracker-button" onClick={addNewExercise}>
+                Add new Exercise
+              </button>
             </form>
           </>
         )}

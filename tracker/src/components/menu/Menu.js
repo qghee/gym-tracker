@@ -13,7 +13,7 @@ const Menu = ({tabIndexProp}) => {
                         <button className="menu-button" onClick={() => setTabIndex(1)}>push</button>
                     </a>
                     <a>
-                        <button className="menu-button" onClick={() => setTabIndex(2)}>leg</button>
+                        <button className="menu-button" onClick={() => setTabIndex(2)}>leg🦿</button>
                     </a>
                 </div> 
 
