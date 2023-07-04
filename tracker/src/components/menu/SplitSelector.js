@@ -14,6 +14,7 @@ const SplitSelector = ({ splitSelectorProp, tabIndexProp }) => {
     setSplitIndex(2)
     setTabIndex(5)
   }
+  
   return (
     <div>
       <div>
@@ -21,7 +22,7 @@ const SplitSelector = ({ splitSelectorProp, tabIndexProp }) => {
           <button onClick={() => setPushPullLegs()}>Push,Pull,Legs</button>
         </a>
         <a>
-          <button onClick={() => setUpperLower}>Upper,Lower</button>
+          <button onClick={() => setUpperLower()}>Upper,Lower</button>
         </a>
         <a>
           <button onClick={() => setFullBody()}>Full Body</button>

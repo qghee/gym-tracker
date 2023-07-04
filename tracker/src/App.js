@@ -5,14 +5,20 @@ import TrackerPage from "./components/tracker/TrackerPage";
 import Menu from "./components/menu/Menu";
 import UpperLowerMenu from "./components/menu/UpperLowerMenu";
 import SplitSelector from "./components/menu/SplitSelector";
+import Home from "./components/menu/Home";
 
 const TAB_INDEX_MAP = ["Pull", "Push", "Leg🦿", "Upper", "Lower", "Full Body"];
+
 
 function App() {
   const [tabIndex, setTabIndex] = React.useState(-1);
   const [splitIndex, setSplitIndex] = React.useState(-1);
   return (
     <div className="main-container">
+      <div>
+        <Home splitSelectorProp={[splitIndex, setSplitIndex]}
+             tabIndexProp={[tabIndex, setTabIndex]}/>
+      </div>
       {splitIndex == -1 ? (
         <>
           <div className="center">

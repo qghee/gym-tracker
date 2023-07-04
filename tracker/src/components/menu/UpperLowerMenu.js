@@ -7,10 +7,10 @@ const UpperLowerMenu = ({tabIndexProp}) => {
             <div className="menu">
                 <div className="button-container">
                     <a>
-                        <button className="menu-button" onClick={() => setTabIndex(4)}>Upper</button>
+                        <button className="menu-button" onClick={() => setTabIndex(3)}>Upper</button>
                     </a>
                     <a>
-                        <button className="menu-button" onClick={() => setTabIndex(5)}>Lower</button>
+                        <button className="menu-button" onClick={() => setTabIndex(4)}>Lower</button>
                     </a>
                 </div> 
 
