@@ -15,14 +15,14 @@ function App() {
   const [splitIndex, setSplitIndex] = React.useState(-1);
   return (
     <div className="main-container">
-      <div>
+      <div className="side-bar">
         <Home splitSelectorProp={[splitIndex, setSplitIndex]}
              tabIndexProp={[tabIndex, setTabIndex]}/>
       </div>
       {splitIndex == -1 ? (
         <>
           <div className="center">
-            Welcome <br /> Please select a workout split to get started :D
+            Welcome <br/> Please select a workout split to get started :D
             <SplitSelector splitSelectorProp={[splitIndex, setSplitIndex]}
              tabIndexProp={[tabIndex, setTabIndex]}  />
           </div>

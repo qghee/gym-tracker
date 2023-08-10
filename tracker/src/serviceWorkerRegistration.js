@@ -32,7 +32,6 @@ export function register(config) {
 
     window.addEventListener('load', () => {
       const swUrl = `https://localhost:3000/service-worker.js`;
-
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
@@ -99,6 +98,7 @@ function registerValidSW(swUrl, config) {
 
 function checkValidServiceWorker(swUrl, config) {
   // Check if the service worker can be found. If it can't reload the page.
+
   fetch(swUrl, {
     headers: { 'Service-Worker': 'script' },
   })

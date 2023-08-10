@@ -1,11 +1,4 @@
-.menu{
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    color: white */
-    background-color: #00153C;
-}
+
 
 .button-container{
     display: flex;
@@ -31,3 +24,47 @@
     color: white;
     border: none;
 }
+
+.side-button{
+    background-color: #00153C;
+    height: 8%;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px 16px;
+    color: white;
+    border: none;
+}
+.side-bar{
+    width:  10%;
+    height: 100%;
+}
+.side-button:hover {
+    background-color: #00276F;
+    transition: color 250ms ease-in-out;
+}
+    
+.selector{
+    list-style: none;
+    height: 100%;
+    width:  100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  
+    padding-inline-start: 0%;
+    
+}
+.selector li{
+    width: 70%;
+    height: 15%;
+    padding-block: 3%;
+}
+.selector button{
+    background-color: #4390BC;
+    color: #bad6e6;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    font-size: x-large;
+}
+

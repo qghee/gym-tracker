@@ -1,3 +1,4 @@
+import Menu from "./Menu";
 const Home = ({ splitSelectorProp, tabIndexProp }) => {
   const [splitIndex, setSplitIndex] = splitSelectorProp;
   const [tabIndex, setTabIndex] = tabIndexProp;
@@ -8,7 +9,7 @@ const Home = ({ splitSelectorProp, tabIndexProp }) => {
 
   return (
     <div>
-      <button onClick={() => reset()}>home</button>
+      <button className="side-button" onClick={() => reset()}>Home</button>
     </div>
   );
 };
