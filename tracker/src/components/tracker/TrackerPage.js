@@ -1,5 +1,6 @@
 import React from "react";
 import "./TrackerPage.css";
+import * as SVGs from "./img/CombinedSVG.js";
 
 /* 
 const DEFAULT_EXCERCISES =[
@@ -8,6 +9,8 @@ const DEFAULT_EXCERCISES =[
     {name,rep,id,type}
 ]
 */
+
+
 
 const getDataFromLocalStorage = () => {
   let i = 0;
@@ -79,10 +82,16 @@ const TrackerPage = ({ dayName }) => {
     localStorage.setItem(exercise.id, JSON.stringify(exercise));
   });
 
-  const deleteItem = React.useCallback((id, idx) =>{ 
-    setExercises( (exercises) => {exercises.splice(idx, 1);return [...exercises]});
-    localStorage.removeItem(id);
-  }, [exercises]);
+  const deleteItem = React.useCallback(
+    (id, idx) => {
+      setExercises((exercises) => {
+        exercises.splice(idx, 1);
+        return [...exercises];
+      });
+      localStorage.removeItem(id);
+    },
+    [exercises]
+  );
 
   return (
     <>
@@ -105,7 +114,10 @@ const TrackerPage = ({ dayName }) => {
                         <button className="tracker-button" onClick={() => setCurrIdx(exercise.id)}>
                           Update Weight
                         </button>
-                        <button className="tracker-button-delete" onClick={() => deleteItem(exercise.id, idx)}> Delete</button>
+                        <button className="tracker-button-delete" onClick={() => deleteItem(exercise.id, idx)}>
+                          {" "}
+                          Delete
+                        </button>
                       </div>
                     )}
                     {currIdx === exercise.id && (
@@ -125,14 +137,19 @@ const TrackerPage = ({ dayName }) => {
                 </div>
               );
             })
-            ) : (
-              <div style={{ paddingBottom: "25px" }}>Your routine is currently empty, Add a new exercise</div>
-              )}
+        ) : (
+          <div style={{ paddingBottom: "25px" }}>Your routine is currently empty, Add a new exercise</div>
+        )}
 
         <button className="tracker-button" onClick={() => setShowForm((prev) => !prev)}>
           {showForm ? "CANCEL" : "+"}
         </button>
-        
+
+    
+        {/*  
+         <SVGs.SVGContainer/>
+         */}
+         <SVGs.FrontMusclesSVG/>
         
 
         {showForm && (
