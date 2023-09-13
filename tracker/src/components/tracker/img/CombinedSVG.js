@@ -1,5 +1,6 @@
 import * as SVGs from "./svg";
 import * as Front from "./FrontMuscles";
+import * as Back from "./BackMuscles";
 /* const SVGContainer = () => {
     
   }; */
@@ -9,42 +10,41 @@ const FrontMusclesSVG = () => {
     <div
       style={{
         position: "relative",
-        width: "70%", 
-        height: "70%", 
-        display: "flex", 
+        width: "70%",
+        height: "70%",
+        display: "flex",
+        left: "16%",
       }}
     >
-      
       <Front.AdductorLongusAndPectineus
         style={{
           flex: "1",
           position: "absolute",
         }}
       />
-        <Front.ExternalObliques
-          style={{
-            flex: "1", 
-            position: "absolute", 
-            
-          }}
-        />
+      <Front.ExternalObliques
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+      />
 
       <Front.VastusLateralis
         style={{
           flex: "1",
-          position: "absolute", 
+          position: "absolute",
         }}
       />
       <Front.BicepsBrachii
         style={{
           flex: "1",
-          position: "absolute", 
+          position: "absolute",
         }}
       />
       <Front.Brachialis
         style={{
-          flex: "1", 
-          position: "absolute", 
+          flex: "1",
+          position: "absolute",
         }}
       />
       <Front.Brachioradialis
@@ -53,35 +53,35 @@ const FrontMusclesSVG = () => {
           position: "absolute",
         }}
       />
-       <Front.Deltoids
+      <Front.Deltoids
         style={{
-          flex: "1", 
-          position: "absolute", 
+          flex: "1",
+          position: "absolute",
         }}
       />
       <Front.FlexorCarpiRadialis
         style={{
-          flex: "1", 
+          flex: "1",
           position: "absolute",
         }}
       />
       <Front.VastusMedialis
         style={{
           flex: "1",
-          position: "absolute", 
+          position: "absolute",
         }}
       />
       <Front.TensorFasciaeLatae
         style={{
-          flex: "1", 
-          position: "absolute", 
+          flex: "1",
+          position: "absolute",
         }}
       />
 
       <Front.SerratusAnterior
         style={{
-          flex: "1", 
-          position: "absolute", 
+          flex: "1",
+          position: "absolute",
         }}
       />
       <Front.Sartorius
@@ -96,8 +96,6 @@ const FrontMusclesSVG = () => {
           position: "absolute",
         }}
       />
-      
-
 
       <Front.Trapezius
         style={{
@@ -106,15 +104,13 @@ const FrontMusclesSVG = () => {
         }}
       />
 
-      
       <Front.ExtensorCarpiRadialis
         style={{
           flex: "1", // Use flex: 1 to make the SVGs take equal horizontal space
           position: "absolute", // Ensure proper positioning within the parent
         }}
       />
-      
-      
+
       <Front.Gastrocnemius
         style={{
           flex: "1", // Use flex: 1 to make the SVGs take equal horizontal space
@@ -151,8 +147,7 @@ const FrontMusclesSVG = () => {
           position: "absolute", // Ensure proper positioning within the parent
         }}
       />
-     
-      
+
       <Front.Soleus
         style={{
           flex: "1", // Use flex: 1 to make the SVGs take equal horizontal space
@@ -165,20 +160,187 @@ const FrontMusclesSVG = () => {
           position: "absolute", // Ensure proper positioning within the parent
         }}
       />
-    <Front.TricepsLongHead
+      <Front.TricepsLongHead
         style={{
           flex: "1", // Use flex: 1 to make the SVGs take equal horizontal space
           position: "absolute", // Ensure proper positioning within the parent
         }}
-     />
-    <Front.TricepsMedialHead
+      />
+      <Front.TricepsMedialHead
         style={{
-          flex: "1", // Use flex: 1 to make the SVGs take equal horizontal space
-          position: "absolute", // Ensure proper positioning within the parent
+          flex: "1",
+          position: "absolute",
         }}
-     />
-    </div> 
+      />
+    </div>
   );
 };
 
-export { FrontMusclesSVG };
+const BackMusclesSVG = () => {
+  return (
+    <div
+      style={{
+        position: "relative",
+        width: "40%",
+        height: "40%",
+        display: "flex",
+        left: "16%",
+      }}
+    >
+      <Back.AdductorMagnus
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+      />
+       <Back.BicepsFermoris
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+      />
+       <Back.Brachioradialis
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+      />
+       <Back.Deltoids
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+      />
+       <Back.ExtensorCarpiRadialis
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+      
+       <Back.ExternalObliques
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.FlexorCarpiRadialis
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.FlexorCarpiUlnaris
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.GastrocnemiusLateralHead
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.GastrocnemiusMedialHead
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.GluteusMaximus
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.GluteusMedius
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.Gracilis
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.Infraspinatus
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.LattisimusDorsi
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.LowerTrapezius
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.PeroneusLongus
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.RhomboidMajor
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.Semitendinosus
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.SerratusAnterioir
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.TensorFascieLatae
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.TeresMajor
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.ThoracolumbarFascia
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+       <Back.Trapezius
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+        />
+        
+       <Back.TricepsBrachii
+        style={{
+          flex: "1",
+          position: "absolute",
+        }}
+      />
+    </div>
+  );
+};
+
+export { FrontMusclesSVG, BackMusclesSVG };

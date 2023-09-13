@@ -10,8 +10,6 @@ const DEFAULT_EXCERCISES =[
 ]
 */
 
-
-
 const getDataFromLocalStorage = () => {
   let i = 0;
   let storedItem = localStorage.getItem(i);
@@ -41,15 +39,23 @@ const TrackerPage = ({ dayName }) => {
   const [currIdx, setCurrIdx] = React.useState(-1);
   const [update, setUpdate] = React.useState(true);
 
+  const [showBody, setShowBody] = React.useState(false);
+  const [Body, setBody] = React.useState(null);
+
   /*  
   const [currExercise, setCurrExercise] = React.useState()
   
-    const addNewExercise = () => {
-        setExercises(p => [...p, {name: newExerciseName, id: p.length + 1, type: dayName}])
+  const addNewExercise = () => {
+    setExercises(p => [...p, {name: newExerciseName, id: p.length + 1, type: dayName}])
         setShowForm(false)
         setNewExerciseName("")
     }
     */
+
+  const openWorkedMuscles = (content) => {
+    setBody(content);
+    setShowBody(true);
+  };
 
   const addNewExercise = React.useCallback(() => {
     const newExercise = {
@@ -97,7 +103,6 @@ const TrackerPage = ({ dayName }) => {
     <>
       <div className="center">
         <h1>{dayName ? dayName : "Exercise Day"}</h1>
-
         {exercises.filter((exercise) => exercise.type === dayName).length > 0 ? (
           exercises
             .filter((exercise) => exercise.type === dayName)
@@ -145,13 +150,6 @@ const TrackerPage = ({ dayName }) => {
           {showForm ? "CANCEL" : "+"}
         </button>
 
-    
-        {/*  
-         <SVGs.SVGContainer/>
-         */}
-         <SVGs.FrontMusclesSVG/>
-        
-
         {showForm && (
           <>
             <form>
@@ -162,6 +160,21 @@ const TrackerPage = ({ dayName }) => {
               </button>
             </form>
           </>
+        )}
+
+        <button className="tracker-button" onClick={() => openWorkedMuscles(<SVGs.FrontMusclesSVG />)}>
+          Show Worked Muscles
+        </button>
+
+        {showBody && (
+          <div className="popup">
+            <div className="popup-content">
+              <button className="tracker-button-delete" onClick={() => setShowBody(false)}>
+                Close
+              </button>
+              {Body}
+            </div>
+          </div>
         )}
       </div>
     </>

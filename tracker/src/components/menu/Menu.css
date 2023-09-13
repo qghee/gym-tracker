@@ -10,6 +10,11 @@
     flex-grow: 1;
 }
 
+.menu{
+    position: sticky;
+    bottom: 0;
+}
+
 .button-container button:hover {
     background-color: #00276F;
     transition: color 250ms ease-in-out;

@@ -14,6 +14,7 @@
     scroll-behavior: smooth;
     background-color: #02061A;
     color: white;
+    overflow-y: scroll;
     /* min-height: 100vh; */
 }
 
